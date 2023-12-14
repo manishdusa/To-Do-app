@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../util/todo_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage>
           'TO-DO',
           style: TextStyle(
             fontSize: 24,
-            color: Colors.white,
+            color: Colors.black45,
           ),
         ),
         centerTitle: true,
@@ -42,34 +43,26 @@ class _HomePageState extends State<HomePage>
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.yellow, Colors.deepOrangeAccent],
+              colors: [Colors.yellowAccent, Colors.orangeAccent],
             ),
           ),
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.yellow, Colors.orangeAccent],
-              ),
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFFeedc83),Color(0xFFfbe106)],
           ),
-          Expanded(
-            child: ListView(
-              children: <Widget>[
-                ListTile(title: Text('Item 1')),
-                ListTile(title: Text('Item 2')),
-                ListTile(title: Text('Item 3')),
-                // Add more list items as needed
-              ],
-            ),
-          ),
-        ],
+        ),
+        child: ListView(
+          children: [
+             ToDoTile(),
+          ],
+        ),
       ),
+
     );
   }
 }
